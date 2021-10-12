@@ -229,6 +229,8 @@ func TestSum(t *testing.T) {
 		{"mixed (larger negative, with borrow)", args{mm(-11, -100000000), mm(2, 9000000 /*.09*/)}, mm(-9, -91000000 /*.091*/), nil},
 		{"0+negative", args{mm(0, 0), mm(-2, -100000000)}, mm(-2, -100000000), nil},
 		{"negative+0", args{mm(-2, -100000000), mm(0, 0)}, mm(-2, -100000000), nil},
+		{"0.61+0", args{mm(0, 610000000), mm(0, 0)}, mm(0, 610000000), nil},
+		{"-0.61+0", args{mm(0, -610000000), mm(0, 0)}, mm(0, -610000000), nil},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
